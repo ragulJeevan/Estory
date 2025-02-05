@@ -1,0 +1,38 @@
+<div>
+    <div>
+        <button (click)="addNewStory()" class="btn" >Add Story</button>
+    </div>
+    @for (item of stories; track item?.id) {
+        @if (!item?.isNew) {
+            <div class="card pointer">
+                <div class="flex-row flex-items-center" (click)="navigateTo('core/story-list')">
+                    <div>
+                        <app-profile-avatar></app-profile-avatar>
+                    </div>
+                    <div>{{item?.header}}</div>
+                </div>
+            </div>
+        }
+        @else {
+            <div [formGroup]="newStoryForm" class="card ">
+                <div class="flex-row flex-space-between" style="width: 100%;align-items: baseline;" >
+                    <div style="width:30%" >
+                        <select formControlName="category_id" class="select">
+                            @for (cat of categoryList; track $index) {
+                            <option value={{cat.id}}>{{cat.name}}</option>
+                            }
+                        </select>
+                    </div>
+                    <div style="width:50%" >
+                        <input formControlName="name" type="text" class="input">
+                    </div>
+                    <div style="width:20%" >
+                        <button (click)="createStory()" class="btn">Add</button>
+                    </div>
+                </div>
+            </div>
+        }
+   
+    }
+
+</div>

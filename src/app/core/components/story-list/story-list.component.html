@@ -1,0 +1,35 @@
+@if (storyData?.length === 0) {
+<div class="container">
+    <div class="content flex-items-center flex-content-center">
+        Story In Progress..
+    </div>
+    <!-- FOOTER  -->
+    <div class="footer text-center">
+        <button (click)="navigateBack()" class="btn">Back</button>
+    </div>
+</div>
+}
+@else {
+<div class="container">
+    <!-- HEADING  -->
+    <div class="flex-row flex-items-center header">
+        <div class="preview-button text-center">
+            <button (click)="previous()" class="btn "> &lt; </button>
+        </div>
+
+        <div class="card heading text-center"> {{story?.title}} </div>
+
+        <div class="preview-button text-center">
+            <button (click)="next()" class="btn "> &gt; </button>
+        </div>
+    </div>
+    <!-- CONTENT  -->
+    <div class="card content">
+        {{story?.content}}
+    </div>
+    <!-- FOOTER  -->
+    <div class="footer text-center">
+        <button (click)="navigateBack()" class="btn">Back</button>
+    </div>
+</div>
+}

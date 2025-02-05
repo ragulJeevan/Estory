@@ -1,0 +1,28 @@
+@if (!isOtp) {
+    <div  style="height:100%;" class="flex-items-center flex-content-center" >
+        <div [formGroup]="loginForm" class="card flex-column">
+            <div class="text-center bold login">Login/Register</div>
+            <div>
+                <div class="bold" >Enter Mobile Number</div>
+                <input formControlName="mobile_number" (keydown)="preventData($event)" (paste)="preventPaste($event)" class="input" type="number" placeholder="Enter 10 digits"  />
+            </div>
+            <div class="text-center" >
+                <button (click)="sendOtP()" class="btn">Send OTP</button>
+            </div>
+        </div>
+    </div>
+}
+@else {
+    <div  style="height:100%;" class="flex-items-center flex-content-center" >
+        <div [formGroup]="otpForm" class="card flex-column">
+            <div class="text-center bold login">Login/Register</div>
+            <div>
+                <div class="bold" >Enter OTP</div>
+                <input formControlName="otp_number" (keydown)="preventData1($event)" (paste)="preventPaste($event)" class="input" type="number"   />
+            </div>
+            <div class="text-center" >
+                <button (click)="login()" class="btn">Login/Register</button>
+            </div>
+        </div>
+    </div>
+}

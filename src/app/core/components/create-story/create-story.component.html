@@ -1,0 +1,24 @@
+<div [formGroup]="singleStory" >
+    <!-- HEADER  -->
+    <div   >
+        <input formControlName="heading" style="text-align: center;" type="text" class="input">
+    </div>
+    <!-- CONTENT  -->
+    <div >
+        <textarea formControlName="content" class="input"  rows="24" > </textarea>
+    </div>
+    <!-- BUTTONS  -->
+    <div class="text-center flex-column" >
+        <div class="flex-row " >
+           <button (click)="prev()" class="btn">Prev</button>
+           <button (click)="singleStory.valid ? next() : ''" class="btn">New</button>
+        </div>
+        <div class="flex-row " >
+            <button (click)="navigateTo('/core/my-story')" class="btn">Back</button>
+            <button (click)="save()" class="btn">Save</button>
+         </div>
+        <div>
+            
+        </div>
+    </div>
+</div>

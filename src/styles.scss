@@ -1,1 +1,144 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    background: blue;
+    padding: 1rem;
+    flex: 0 0 auto;
+}
+
+.content {
+    background: #89e9e9;
+    padding: 0.5rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+.footer {
+    background: rgb(40, 207, 68);
+    padding: 1rem;
+    flex: 0 0 auto;
+}
+
+// 
+.pointer {
+    cursor: pointer;
+}
+
+// CARD 
+.card {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: lightblue;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 0.5rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        margin: 0.3rem;
+        padding: 0.6rem;
+    }
+}
+
+// BUTTON 
+.btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+// FONT 
+.bold {
+    font-weight: bold;
+}
+
+.grey{
+    color: grey;
+}
+
+// FLEX 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.flex-items-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-content-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+// INPUT BOX
+.input {
+    width:-webkit-fill-available;;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
+    border-radius: 8px;
+    // font-weight: bold;
+    border: 1px solid grey;
+}
+
+.input:focus {
+    border: 1px solid grey;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+// TEXT 
+.text-center {
+    text-align: center;
+}
+// SELECT 
+.select{
+    width: -webkit-fill-available !important;
+    padding: 0.5rem !important;
+    border-radius: 8px !important;
+    border: 1px solid grey;
+}
+.select:focus {
+    border: 1px solid grey;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}

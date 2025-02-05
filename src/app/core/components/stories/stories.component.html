@@ -1,0 +1,14 @@
+<div>
+
+    @for (item of stories; track item?.id) {
+    <div class="card pointer">
+        <div class="flex-row flex-items-center" (click)="navigateTo('core/story-list',item?.story_id)">
+            <div>
+                <app-profile-avatar  ></app-profile-avatar>
+            </div>
+            <div>{{item?.title}}</div>
+        </div>
+    </div>
+    }
+
+</div>

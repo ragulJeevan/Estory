@@ -1,0 +1,101 @@
+@if (!isAgreement) {
+    <div class="register" >
+        Register 
+    </div>
+<div class="flex-column" [formGroup]="registerForm">
+    <!-- NAME  -->
+    <div>
+        <div class="bold">Name</div>
+        <input formControlName="name" class="input" type="text" placeholder="Enter Name" />
+    </div>
+    <!-- WHATSAPP NUMBER  -->
+    <div>
+        <div class="bold">Whatsapp Number</div>
+        <input formControlName="number" (keydown)="preventData($event)" class="input" type="number"
+            placeholder="Enter 10 digits" />
+    </div>
+    <!-- DATE OF BIRTH  -->
+    <div>
+        <div class="bold">Date of Birth</div>
+        <input formControlName="dob" class="input" type="date" placeholder="DD/MM/YYYY" />
+    </div>
+    <!-- GENDER  -->
+    <div>
+        <div class="bold">Gender</div>
+        <select formControlName="gender" class="select">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <!-- STATE -->
+    <div>
+        <div class="bold ">State</div>
+        <select formControlName="state" class="select" (change)="toggleSelection('State',$event)">
+            <option value='' disabled>Select</option>
+            @for (state of stateData; track $index) {
+            <option value={{state.id}}>{{state.name}}</option>
+            }
+        </select>
+    </div>
+    <!-- DISTRICT  -->
+    <div>
+        <div class="bold">District</div>
+        <select formControlName="district" class="select" (change)="toggleSelection('District',$event)">
+            <option value='' disabled>Select</option>
+            @for (district of districtList; track $index) {
+            <option value={{district.id}}>{{district.name}}</option>
+            }
+        </select>
+    </div>
+    <!-- TALUK  -->
+    <div>
+        <div class="bold">Taluk</div>
+        <select formControlName="taluk" class="select" (change)="toggleSelection('Taluk',$event)">
+            <option value='' disabled>Select</option>
+            @for (taluk of talukList; track $index) {
+            <option value={{taluk.id}}>{{taluk.name}}</option>
+            }
+        </select>
+    </div>
+    <!-- PANCHAYAT  -->
+    <div>
+        <div class="bold">Panchayat</div>
+        <select formControlName="panchayat" class="select" (change)="toggleSelection('Panchayat',$event)">
+            <option value='' disabled>Select</option>
+            @for (panchayat of panchayatList; track $index) {
+            <option value={{panchayat.id}}>{{panchayat.name}}</option>
+            }
+        </select>
+    </div>
+    <!-- STREET  -->
+    <div>
+        <div class="bold">Street</div>
+        <textarea class="input" formControlName="street" rows="3" placeholder="Enter Address"> </textarea>
+    </div>
+    <!-- PINCODE  -->
+    <div>
+        <div class="bold">Pincode</div>
+        <input formControlName="pincode" (keydown)="preventData1($event)" class="input" type="number"
+            placeholder="Enter Pincode" />
+    </div>
+    <!-- REGSITER  -->
+    <div class="text-center">
+        <button class="btn" (click)="confirmAgreement()"> Register </button>
+    </div>
+</div>
+}
+
+@else {
+    <div class="card flex-column" >
+        <div class="register" >Privacy Policy</div>
+        @for (item of agreementList; track $index) {
+            <div class="agreement" >{{item?.name}}</div>
+        }
+
+         <!-- REGSITER  -->
+    <div class="text-center">
+        <button class="btn" (click)="register()"> Agree and Continue </button>
+    </div>
+    </div>
+}
